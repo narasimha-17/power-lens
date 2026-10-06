@@ -1,10 +1,11 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { AskYourDataPage } from './pages/AskYourDataPage'
 import { BIAnalystPage } from './pages/BIAnalystPage'
 import { DashboardDetailPage } from './pages/DashboardDetailPage'
 import { DashboardsPage } from './pages/DashboardsPage'
 import { DataSourcesPage } from './pages/DataSourcesPage'
 import { ForecastsPage } from './pages/ForecastsPage'
+import { LandingPage } from './pages/LandingPage'
 import { QueryHistoryPage } from './pages/QueryHistoryPage'
 import { ReportsPage } from './pages/ReportsPage'
 import { SettingsPage } from './pages/SettingsPage'
@@ -17,7 +18,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/share/:token" element={<SharedDashboardPage />} />
-          <Route path="/" element={<Navigate to="/dashboards" replace />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/ask" element={<AskYourDataPage />} />
           <Route path="/sources" element={<DataSourcesPage />} />
           <Route path="/history" element={<QueryHistoryPage />} />

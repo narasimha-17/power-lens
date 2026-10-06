@@ -114,3 +114,46 @@ html.dark input:-webkit-autofill:focus {
   border-radius: 999px;
   animation: indeterminate-sweep 1.4s ease-in-out infinite;
 }
+
+/* Landing page: floating activity cards drift gently around their resting tilt. */
+@keyframes pl-drift {
+  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+  50% { transform: translateY(-7px) rotate(var(--r, 0deg)); }
+}
+.pl-drift {
+  transform: rotate(var(--r, 0deg));
+  animation: pl-drift 7s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pl-drift { animation: none; }
+}
+
+/* Landing page: a light pulse travelling along the privacy flow connectors. */
+@keyframes pl-flow-x {
+  0% { left: 0; opacity: 0; }
+  20%, 80% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+@keyframes pl-flow-y {
+  0% { top: 0; opacity: 0; }
+  20%, 80% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+.pl-flow {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #f0abfc;
+  box-shadow: 0 0 12px 3px rgba(240, 171, 252, 0.7);
+  transform: translate(-50%, -50%);
+  animation: pl-flow-x 2.2s linear infinite;
+}
+@media (max-width: 639px) {
+  .pl-flow { top: 0; left: 50%; animation-name: pl-flow-y; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pl-flow { animation: none; opacity: 0.8; left: 50%; top: 50%; }
+}

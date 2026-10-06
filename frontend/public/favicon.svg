@@ -1,14 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
   <defs>
-    <linearGradient id="pl-grad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#818cf8"/>
-      <stop offset="1" stop-color="#4338ca"/>
+    <linearGradient id="plm-bg" x1="4" y1="2" x2="44" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="0.45" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#c026d3"/>
+    </linearGradient>
+    <linearGradient id="plm-shine" x1="0" y1="0" x2="0" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.35"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0"/>
     </linearGradient>
   </defs>
-  <rect width="48" height="48" rx="11" fill="url(#pl-grad)"/>
-  <g transform="translate(7,7) scale(1.45)" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="10" cy="10" r="7"/>
-    <polyline points="6.5 12.5 9 9 11.5 10.5 14 6.5"/>
-    <line x1="15" y1="15" x2="21" y2="21"/>
-  </g>
+  <rect width="48" height="48" rx="13" fill="url(#plm-bg)"/>
+  <rect width="48" height="48" rx="13" fill="url(#plm-shine)"/>
+  <rect x="0.5" y="0.5" width="47" height="47" rx="12.5" stroke="#fff" stroke-opacity="0.28"/>
+  <circle cx="21" cy="21" r="11.5" fill="#0b1030" fill-opacity="0.25" stroke="#fff" stroke-width="3"/>
+  <polyline points="14.5,25.5 19,20.5 23,23.5 28,16.5" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="28" cy="16.5" r="2" fill="#a5f3fc"/>
+  <line x1="29.5" y1="29.5" x2="38.5" y2="38.5" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <path d="M37 6.5l1.3 3.2 3.2 1.3-3.2 1.3-1.3 3.2-1.3-3.2-3.2-1.3 3.2-1.3z" fill="#fff" fill-opacity="0.95"/>
 </svg>
