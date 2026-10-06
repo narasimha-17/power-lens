@@ -21,7 +21,6 @@ const PERIOD_OPTIONS = [3, 6, 12]
 
 export function ForecastsPage() {
   const { sources, activeSourceId, setActiveSourceId } = useAppState()
-  const activeSource = sources.find((s) => s.id === activeSourceId)
 
   const [valueField, setValueField] = useState<string>('')
   const [periods, setPeriods] = useState(3)
