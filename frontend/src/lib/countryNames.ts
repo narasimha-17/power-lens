@@ -1,0 +1,71 @@
+/** Normalizes a country name/code from arbitrary source data (e.g. "USA", "US", "United
+ * States") to the exact name used by the world-atlas TopoJSON's `properties.name` field
+ * (Natural Earth naming, e.g. "United States of America") so the choropleth map can match a
+ * data row to the right map feature. Falls through to the input string unchanged when it's
+ * not a recognized alias — many datasets already use the canonical name, which then matches
+ * a feature directly without needing an entry here. */
+const ALIASES: Record<string, string> = {
+  usa: 'United States of America',
+  us: 'United States of America',
+  'united states': 'United States of America',
+  uk: 'United Kingdom',
+  'great britain': 'United Kingdom',
+  britain: 'United Kingdom',
+  uae: 'United Arab Emirates',
+  drc: 'Dem. Rep. Congo',
+  'democratic republic of the congo': 'Dem. Rep. Congo',
+  'congo-kinshasa': 'Dem. Rep. Congo',
+  'republic of congo': 'Congo',
+  'congo-brazzaville': 'Congo',
+  'south korea': 'South Korea',
+  'republic of korea': 'South Korea',
+  'north korea': 'North Korea',
+  russia: 'Russia',
+  'russian federation': 'Russia',
+  vietnam: 'Vietnam',
+  'viet nam': 'Vietnam',
+  laos: 'Laos',
+  syria: 'Syria',
+  iran: 'Iran',
+  'iran, islamic republic of': 'Iran',
+  bolivia: 'Bolivia',
+  venezuela: 'Venezuela',
+  tanzania: 'Tanzania',
+  czechia: 'Czechia',
+  'czech republic': 'Czechia',
+  'ivory coast': "Côte d'Ivoire",
+  "cote d'ivoire": "Côte d'Ivoire",
+  cotedivoire: "Côte d'Ivoire",
+  'myanmar (burma)': 'Myanmar',
+  burma: 'Myanmar',
+  moldova: 'Moldova',
+  'republic of moldova': 'Moldova',
+  brunei: 'Brunei',
+  eswatini: 'eSwatini',
+  swaziland: 'eSwatini',
+  macedonia: 'North Macedonia',
+  'north macedonia': 'North Macedonia',
+  'bosnia and herzegovina': 'Bosnia and Herz.',
+  bosnia: 'Bosnia and Herz.',
+  'united republic of tanzania': 'Tanzania',
+  'dominican republic': 'Dominican Rep.',
+  'south sudan': 'S. Sudan',
+  'central african republic': 'Central African Rep.',
+  'equatorial guinea': 'Eq. Guinea',
+  'solomon islands': 'Solomon Is.',
+  'antigua and barbuda': 'Antigua and Barb.',
+  'trinidad and tobago': 'Trinidad and Tobago',
+  'saint vincent and the grenadines': 'St. Vin. and Gren.',
+  'saint kitts and nevis': 'St. Kitts and Nevis',
+  'sao tome and principe': 'São Tomé and Principe',
+  netherlands: 'Netherlands',
+  'the netherlands': 'Netherlands',
+  holland: 'Netherlands',
+  turkiye: 'Turkey',
+  türkiye: 'Turkey',
+}
+
+export function normalizeCountryName(raw: string): string {
+  const key = raw.trim().toLowerCase()
+  return ALIASES[key] ?? raw.trim()
+}
